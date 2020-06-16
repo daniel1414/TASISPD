@@ -1,0 +1,6 @@
+function [out] = lut(org, lut)
+if(size(org) == size
+    for i=1:size(org, 2)
+        out(i) = 
+    end
+end
