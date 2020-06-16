@@ -1,4 +1,3 @@
-close all;
 bateria = BATERIA_MAX;
 bateria_wyk = bateria;
 porosty = zeros(1, DLUGOSC); % porosty powoduj¹ rdze, wykryte mog¹ byæ usuniete
@@ -39,24 +38,24 @@ figure(1);
 subplot(2,2,1); hold on;
 set(gca, 'XLim', [0 DLUGOSC], 'YLim', [0 110]);
 title('bateria %');
-xlabel('glebokosc rury [cm]');
+xlabel('glebokosc rury [m]');
 % plot(1:499, PODLACZONY_t*10, 'Color', 'blue');
 subplot(2,2,2);
 wg_anim = animatedline('Color', 'black');
 set(gca, 'XLim', [0 DLUGOSC]);
 % , 'YLim', [-0.5 1.5]
 title('porosty');
-xlabel('glebokosc rury [cm]');
+xlabel('glebokosc rury [m]');
 subplot(2,2,3);
 rdza_anim = animatedline('Color', '#D95319');
 set(gca, 'XLim', [0 DLUGOSC], 'YLim', [-0.5 1.5]);
 title('rdza');
-xlabel('glebokosc rury [cm]');
+xlabel('glebokosc rury [m]');
 subplot(2,2,4);
 prz_anim = animatedline('Color', 'blue');
 set(gca, 'XLim', [0 DLUGOSC], 'YLim', [-0.5 1.5]);
 title('przecieki');
-xlabel('dlugosc rury [cm]');
+xlabel('glebokosc rury [m]');
 for i=1:DLUGOSC
     subplot(2,2,1);
     hold on;
