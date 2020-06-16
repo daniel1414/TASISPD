@@ -35,7 +35,7 @@ switch SRODOWISKO
         for i=1:DLUGOSC % sprawdza ka¿dy cm
             % skanujemy
             if(bateria(i) > 10)
-                [wgniecenie(i+1), rdza(i+1), przeciek(i+1), bateria(i+1)] = skan_ziemia(wgniecenie(i), rdza(i), bateria(i), SREDNICA);
+                [wgniecenie(i+1), rdza(i+1), przeciek(i+1), bateria(i)] = skan_ziemia(wgniecenie(i), rdza(i), bateria(i), SREDNICA);
             else
                 bateria(i+1) = bateria(i);
                 % podlaczamy ladowarkê i pracuje dalej
