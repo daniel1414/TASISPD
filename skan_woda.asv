@@ -5,10 +5,10 @@ function [porosty, rdza, przeciek, bateria] = skan_woda(poprz_wg, poprz_rdza, po
     if (poprz_wg == 0 && r_w > 0.94)
         porosty = 1;
     elseif (poprz_wg > 0 && r_w > 0.10)
-            if(poprz_wg<35*r_w)
-                porosty = poprz_wg*log(poprz_wg*4.5);
+            if(poprz_wg<30*r_w)
+                porosty = poprz_wg*log(poprz_wg*3);
             else
-                porosty = poprz_wg/log(poprz_wg*12);
+                porosty = poprz_wg/log(poprz_wg*9);
                 if(porosty<1) 
                     porosty = 0;
                 end
@@ -43,9 +43,9 @@ function [porosty, rdza, przeciek, bateria] = skan_woda(poprz_wg, poprz_rdza, po
     end
     % straty energii
     if(przeciek == 1)
-    	bateria = poprz_bateria - glebokosc*0.1;
+    	bateria = poprz_bateria - glebokosc*0.03 - 10;
     else
-        bateria = poprz_bateria - glebokosc*0.02; 
+        bateria = poprz_bateria - glebokosc*0.03; 
     end
     
 end
