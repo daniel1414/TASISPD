@@ -1,1 +1,1 @@
-Tu pisze Mariusz
+i leci edycik
