@@ -23,6 +23,7 @@ SRODOWISKO = LAD;
 switch SRODOWISKO
     case WODA
         % Mariusz
+        model_woda;
     case LAD
         % Daniel
         bateria = BATERIA_MAX;
@@ -97,7 +98,7 @@ switch SRODOWISKO
             else
                 plot([i, i+1], [bateria(i), bateria(i+1)], 'Color', 'red')
             end
-            addpoints(bat_anim, i, bateria_wyk(i))
+%             addpoints(bat_anim, i, bateria_wyk(i))
             subplot(2,2,2);
             addpoints(wg_anim, i, wgniecenie(i));
             subplot(2,2,3)
