@@ -1,3 +1,3 @@
-function [bateria] = ruch_ziemia(poprz_bateria)
-    bateria = poprz_bateria - 0.4;
+function [bateria] = ruch_ziemia(poprz_bateria, srednica)
+    bateria = poprz_bateria - srednica * 0.03;
 end

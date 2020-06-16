@@ -5,7 +5,7 @@ ZIELONY = 0;
 ZOLTY = 1;
 CZERWONY = 2;
 
-BATERIA_LED_GRANICA_ZOLTY = 20;
+BATERIA_LED_GRANICA_ZOLTY = 30;
 BATERIA_LED_GRANICA_CZERWONY = 10; 
 
 BATERIA_MAX = 100; % %
@@ -44,7 +44,7 @@ switch SRODOWISKO
             BATERIA_LED = stan_baterii(bateria(i), BATERIA_LED_GRANICA_ZOLTY, BATERIA_LED_GRANICA_CZERWONY);
             % idziemy dalej
             if (bateria(i) > 10)
-                bateria(i+1) = ruch_ziemia(bateria(i));
+                bateria(i+1) = ruch_ziemia(bateria(i), SREDNICA);
             else
                 bateria(i+1) = bateria(i);
                 % podlaczamy ladowarkê i pracuje dalej
@@ -70,7 +70,7 @@ switch SRODOWISKO
         % wizualizacje
         figure(1);
         subplot(2,2,1); hold on;
-        set(gca, 'XLim', [0 DLUGOSC], 'YLim', [-10 110]);
+        set(gca, 'XLim', [0 DLUGOSC], 'YLim', [0 110]);
         title('bateria %');
         xlabel('dlugosc rury [cm]');
         subplot(2,2,2);
