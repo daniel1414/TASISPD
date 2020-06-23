@@ -8,21 +8,22 @@ CZERWONY = 2;
 BATERIA_LED_GRANICA_ZOLTY = 30;
 BATERIA_LED_GRANICA_CZERWONY = 10; 
 
-BATERIA_MAX = 100; % %
+BATERIA_MAX = 100; % 
 BATERIA_LED = ZIELONY; % dioda alarmuj¹ca o roz³adowaniu baterii
 SREDNICA = 20; % cm
 DLUGOSC = 500; % cm
 
 WODA = 0;
 LAD = 1;
-POWIETRZE = 2;
 PODLACZONY = 0; % czy robot jest pod³¹czony kablem do ³adowania - wp³ywa na to, czy robot siê mo¿e roz³adowaæ podczas pracy
 
-SRODOWISKO = LAD;
+SRODOWISKO = WODA;
 
 switch SRODOWISKO
     case WODA
         % Mariusz
+        myWriter = VideoWriter('WODA');
+        myWriter.FrameRate = 20;
         model_woda;
     case LAD
         % Daniel
@@ -32,6 +33,9 @@ switch SRODOWISKO
         wgniecenie = zeros(1, DLUGOSC);
         rdza = zeros(1, DLUGOSC);
         przeciek = zeros(1, DLUGOSC);
+        
+        myWriter = VideoWriter('LAD');
+        myWriter.FrameRate = 20;
         for i=1:DLUGOSC % sprawdza ka¿dy cm
             % skanujemy
             if(bateria(i) > 10)
@@ -106,6 +110,11 @@ switch SRODOWISKO
             subplot(2,2,4);
             addpoints(prz_anim, i, przeciek(i));
             drawnow;
+            movieData(i) = getframe;
         end
     otherwise
 end
+
+open(myWriter);
+writeVideo(myWriter, movieData);
+close(myWriter);
