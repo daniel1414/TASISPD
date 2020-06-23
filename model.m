@@ -17,7 +17,7 @@ WODA = 0;
 LAD = 1;
 PODLACZONY = 0; % czy robot jest pod³¹czony kablem do ³adowania - wp³ywa na to, czy robot siê mo¿e roz³adowaæ podczas pracy
 
-SRODOWISKO = WODA;
+SRODOWISKO = LAD;
 
 switch SRODOWISKO
     case WODA

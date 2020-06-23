@@ -27,7 +27,7 @@ function [wgniecenie, rdza, przeciek, bateria] = skan_ziemia(poprz_wg, poprz_rdz
     end
     % przeciek
     r_p = rand();
-    if (r_p > 0.99)
+    if (r_p > 0.99 || (r_p > 0.8 && wgniecenie))
         przeciek = 1;
     else
         przeciek = 0;
