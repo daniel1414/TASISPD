@@ -38,7 +38,7 @@ switch SRODOWISKO
         myWriter.FrameRate = 20;
         for i=1:DLUGOSC % sprawdza ka¿dy cm
             % skanujemy
-            if(bateria(i) > 10)
+            if(bateria(i) > BATERIA_LED_GRANICA_CZERWONY)
                 [wgniecenie(i+1), rdza(i+1), przeciek(i+1), bateria(i)] = skan_ziemia(wgniecenie(i), rdza(i), bateria(i), SREDNICA);
             else
                 bateria(i+1) = bateria(i);
@@ -48,7 +48,7 @@ switch SRODOWISKO
             % ustawiamy LED informuj¹cego o poziomie baterii
             BATERIA_LED = stan_baterii(bateria(i), BATERIA_LED_GRANICA_ZOLTY, BATERIA_LED_GRANICA_CZERWONY);
             % idziemy dalej
-            if (bateria(i) > 10)
+            if (bateria(i) > BATERIA_LED_GRANICA_CZERWONY)
                 bateria(i+1) = ruch_ziemia(bateria(i), SREDNICA);
             else
                 bateria(i+1) = bateria(i);
